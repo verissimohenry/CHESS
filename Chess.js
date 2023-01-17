@@ -180,4 +180,46 @@ document.querySelectorAll('.box').forEach(item => {
     }
 
 
+// KING
+
+if (item.innerText == `${toggle}king`) {
+
+
+    if (aside < 8) {
+        document.getElementById(`b${a + 1}`).style.backgroundColor = 'green'
+
+    }
+    if (aside > 1) {
+
+        document.getElementById(`b${a - 1}`).style.backgroundColor = 'green'
+    }
+    if (aup < 800) {
+
+        document.getElementById(`b${a + 100}`).style.backgroundColor = 'green'
+    }
+    if (aup > 100) {
+
+        document.getElementById(`b${a - 100}`).style.backgroundColor = 'green'
+    }
+
+    if (aup > 100 && aside < 8) {
+
+        document.getElementById(`b${a - 100 + 1}`).style.backgroundColor = 'green'
+    }
+    if (aup > 100 && aside > 1) {
+
+        document.getElementById(`b${a - 100 - 1}`).style.backgroundColor = 'green'
+    }
+    if (aup < 800 && aside < 8) {
+
+        document.getElementById(`b${a + 100 + 1}`).style.backgroundColor = 'green'
+    }
+    if (aup < 800 && aside > 1) {
+
+        document.getElementById(`b${a + 100 - 1}`).style.backgroundColor = 'green'
+    }
+
+    item.style.backgroundColor = 'pink'
+
+}
 
