@@ -8,3 +8,8 @@ body {
     place-items: center;
     overflow-x: hidden;
 }
+
+h1 {
+    margin: 10px;
+}
+
