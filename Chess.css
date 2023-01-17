@@ -22,3 +22,10 @@ ul {
     display: flex;
 }
 
+li {
+    list-style: none;
+    display: grid;
+    place-items: center;
+    font-size: 0px;
+}
+
