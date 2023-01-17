@@ -50,3 +50,13 @@ li {
     transform: scale(.7);
 }
 
+.authcont {
+    width: 100vw;
+}
+
+.author {
+    float: right;
+    margin-right: 50px;
+
+}
+
