@@ -466,3 +466,50 @@ ROOK
         }
     }
 
+
+      // Toggling the turn
+
+      if (tog % 2 !== 0) {
+        document.getElementById('tog').innerText = "White's Turn"
+        whosTurn('W')
+    }
+    if (tog % 2 == 0) {
+        document.getElementById('tog').innerText = "Black's Turn"
+        whosTurn('B')
+    }
+
+    reddish()
+
+
+
+    // winning()
+
+    numOfKings = 0
+
+
+    document.querySelectorAll('.box').forEach(win => {
+        if (win.innerText == 'Wking' || win.innerText == 'Bking') {
+            numOfKings += 1
+        }
+
+    })
+
+    if (numOfKings == 1) {
+        setTimeout(() => {
+            // console.log(`${toggle}`) 
+            if (tog % 2 == 0) {
+                alert('White Wins !!')
+                location.reload()
+            }
+            else if (tog % 2 !== 0) {
+                alert('Black Wins !!')
+                location.reload()
+            }
+        }, 100)
+    }
+
+
+
+})
+
+})
