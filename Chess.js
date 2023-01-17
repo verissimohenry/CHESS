@@ -135,4 +135,49 @@ document.querySelectorAll('.box').forEach(item => {
         arr.push('0')
         aup = eval(arr.join(''))
         a = aside + aup  
-        
+
+
+ // Function to display the available paths for all pieces
+
+ function whosTurn(toggle) {
+
+    // PAWN
+
+    if (item.innerText == `${toggle}pawn`) {
+        item.style.backgroundColor = 'pink'
+
+        if (tog % 2 !== 0 && aup < 800) {
+
+            if (document.getElementById(`b${a + 100}`).innerText.length == 0) {
+                document.getElementById(`b${a + 100}`).style.backgroundColor = 'green'
+            }
+
+            if (aside < 8 && document.getElementById(`b${a + 100 + 1}`).innerText.length !== 0) {
+                document.getElementById(`b${a + 100 + 1}`).style.backgroundColor = 'green'
+            }
+
+            if (aside > 1 && document.getElementById(`b${a + 100 - 1}`).innerText.length !== 0) {
+                document.getElementById(`b${a + 100 - 1}`).style.backgroundColor = 'green'
+
+            }
+        }
+
+        if (tog % 2 == 0 && aup > 100) {
+
+            if (document.getElementById(`b${a - 100}`).innerText.length == 0) {
+                document.getElementById(`b${a - 100}`).style.backgroundColor = 'green'
+            }
+            if (aside < 8 && document.getElementById(`b${a - 100 + 1}`).innerText.length !== 0) {
+                document.getElementById(`b${a - 100 + 1}`).style.backgroundColor = 'green'
+            }
+            if (aside > 1 && document.getElementById(`b${a - 100 - 1}`).innerText.length !== 0) {
+                document.getElementById(`b${a - 100 - 1}`).style.backgroundColor = 'green'
+
+            }
+        }
+
+
+    }
+
+
+
