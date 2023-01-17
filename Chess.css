@@ -18,3 +18,7 @@ ul {
     grid-template-columns: 1fr;
 }
 
+.divv {
+    display: flex;
+}
+
