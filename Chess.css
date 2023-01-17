@@ -13,3 +13,8 @@ h1 {
     margin: 10px;
 }
 
+ul {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
