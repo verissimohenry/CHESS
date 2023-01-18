@@ -8,9 +8,7 @@ function insertImage() {
                 image.innerHTML = `${image.innerText} <img class='allimg allpawn' src="${image.innerText}.png" alt="">`
                 image.style.cursor = 'pointer'
 
-            }
-
-            else {
+            } else {
 
                 image.innerHTML = `${image.innerText} <img class='allimg' src="${image.innerText}.png" alt="">`
                 image.style.cursor = 'pointer'
@@ -19,6 +17,8 @@ function insertImage() {
     })
 }
 insertImage()
+
+
 
 //Coloring
 
@@ -45,6 +45,9 @@ function coloring() {
 }
 coloring()
 
+
+
+
 //function to not remove the same team element
 
 function reddish() {
@@ -69,7 +72,7 @@ function reddish() {
                     aside = eval(arr.pop())
                     aup = eval(arr.shift())
                     a = aside + aup
-            
+
                     if (a % 2 == 0 && pinkColor == greenColor) {
                         i2.style.backgroundColor = 'rgb(240, 201, 150)'
                     }
@@ -107,9 +110,7 @@ document.querySelectorAll('.box').forEach(item => {
 
         if (item.style.backgroundColor == 'green' && item.innerText.length == 0) {
             tog = tog + 1
-        }
-
-        else if (item.style.backgroundColor == 'green' && item.innerText.length !== 0) {
+        } else if (item.style.backgroundColor == 'green' && item.innerText.length !== 0) {
 
             document.querySelectorAll('.box').forEach(i => {
                 if (i.style.backgroundColor == 'pink') {
@@ -121,7 +122,7 @@ document.querySelectorAll('.box').forEach(item => {
                     coloring()
                     insertImage()
                     tog = tog + 1
-                    
+
                 }
             })
         }
@@ -134,96 +135,97 @@ document.querySelectorAll('.box').forEach(item => {
         aside = eval(arr.pop())
         arr.push('0')
         aup = eval(arr.join(''))
-        a = aside + aup  
+        a = aside + aup
 
 
- // Function to display the available paths for all pieces
 
- function whosTurn(toggle) {
+        // Function to display the available paths for all pieces
 
-    // PAWN
+        function whosTurn(toggle) {
 
-    if (item.innerText == `${toggle}pawn`) {
-        item.style.backgroundColor = 'pink'
+            // PAWN
 
-        if (tog % 2 !== 0 && aup < 800) {
+            if (item.innerText == `${toggle}pawn`) {
+                item.style.backgroundColor = 'pink'
 
-            if (document.getElementById(`b${a + 100}`).innerText.length == 0) {
-                document.getElementById(`b${a + 100}`).style.backgroundColor = 'green'
+                if (tog % 2 !== 0 && aup < 800) {
+
+                    if (document.getElementById(`b${a + 100}`).innerText.length == 0) {
+                        document.getElementById(`b${a + 100}`).style.backgroundColor = 'green'
+                    }
+
+                    if (aside < 8 && document.getElementById(`b${a + 100 + 1}`).innerText.length !== 0) {
+                        document.getElementById(`b${a + 100 + 1}`).style.backgroundColor = 'green'
+                    }
+
+                    if (aside > 1 && document.getElementById(`b${a + 100 - 1}`).innerText.length !== 0) {
+                        document.getElementById(`b${a + 100 - 1}`).style.backgroundColor = 'green'
+
+                    }
+                }
+
+                if (tog % 2 == 0 && aup > 100) {
+
+                    if (document.getElementById(`b${a - 100}`).innerText.length == 0) {
+                        document.getElementById(`b${a - 100}`).style.backgroundColor = 'green'
+                    }
+                    if (aside < 8 && document.getElementById(`b${a - 100 + 1}`).innerText.length !== 0) {
+                        document.getElementById(`b${a - 100 + 1}`).style.backgroundColor = 'green'
+                    }
+                    if (aside > 1 && document.getElementById(`b${a - 100 - 1}`).innerText.length !== 0) {
+                        document.getElementById(`b${a - 100 - 1}`).style.backgroundColor = 'green'
+
+                    }
+                }
+
+
             }
 
-            if (aside < 8 && document.getElementById(`b${a + 100 + 1}`).innerText.length !== 0) {
-                document.getElementById(`b${a + 100 + 1}`).style.backgroundColor = 'green'
+            // KING
+
+            if (item.innerText == `${toggle}king`) {
+
+
+                if (aside < 8) {
+                    document.getElementById(`b${a + 1}`).style.backgroundColor = 'green'
+
+                }
+                if (aside > 1) {
+
+                    document.getElementById(`b${a - 1}`).style.backgroundColor = 'green'
+                }
+                if (aup < 800) {
+
+                    document.getElementById(`b${a + 100}`).style.backgroundColor = 'green'
+                }
+                if (aup > 100) {
+
+                    document.getElementById(`b${a - 100}`).style.backgroundColor = 'green'
+                }
+
+                if (aup > 100 && aside < 8) {
+
+                    document.getElementById(`b${a - 100 + 1}`).style.backgroundColor = 'green'
+                }
+                if (aup > 100 && aside > 1) {
+
+                    document.getElementById(`b${a - 100 - 1}`).style.backgroundColor = 'green'
+                }
+                if (aup < 800 && aside < 8) {
+
+                    document.getElementById(`b${a + 100 + 1}`).style.backgroundColor = 'green'
+                }
+                if (aup < 800 && aside > 1) {
+
+                    document.getElementById(`b${a + 100 - 1}`).style.backgroundColor = 'green'
+                }
+
+                item.style.backgroundColor = 'pink'
+
             }
 
-            if (aside > 1 && document.getElementById(`b${a + 100 - 1}`).innerText.length !== 0) {
-                document.getElementById(`b${a + 100 - 1}`).style.backgroundColor = 'green'
 
-            }
-        }
-
-        if (tog % 2 == 0 && aup > 100) {
-
-            if (document.getElementById(`b${a - 100}`).innerText.length == 0) {
-                document.getElementById(`b${a - 100}`).style.backgroundColor = 'green'
-            }
-            if (aside < 8 && document.getElementById(`b${a - 100 + 1}`).innerText.length !== 0) {
-                document.getElementById(`b${a - 100 + 1}`).style.backgroundColor = 'green'
-            }
-            if (aside > 1 && document.getElementById(`b${a - 100 - 1}`).innerText.length !== 0) {
-                document.getElementById(`b${a - 100 - 1}`).style.backgroundColor = 'green'
-
-            }
-        }
-
-
-    }
-
-
-// KING
-
-if (item.innerText == `${toggle}king`) {
-
-
-    if (aside < 8) {
-        document.getElementById(`b${a + 1}`).style.backgroundColor = 'green'
-
-    }
-    if (aside > 1) {
-
-        document.getElementById(`b${a - 1}`).style.backgroundColor = 'green'
-    }
-    if (aup < 800) {
-
-        document.getElementById(`b${a + 100}`).style.backgroundColor = 'green'
-    }
-    if (aup > 100) {
-
-        document.getElementById(`b${a - 100}`).style.backgroundColor = 'green'
-    }
-
-    if (aup > 100 && aside < 8) {
-
-        document.getElementById(`b${a - 100 + 1}`).style.backgroundColor = 'green'
-    }
-    if (aup > 100 && aside > 1) {
-
-        document.getElementById(`b${a - 100 - 1}`).style.backgroundColor = 'green'
-    }
-    if (aup < 800 && aside < 8) {
-
-        document.getElementById(`b${a + 100 + 1}`).style.backgroundColor = 'green'
-    }
-    if (aup < 800 && aside > 1) {
-
-        document.getElementById(`b${a + 100 - 1}`).style.backgroundColor = 'green'
-    }
-
-    item.style.backgroundColor = 'pink'
-
-}
-
-ROOK
+            // ROOK
 
             if (item.innerText == `${toggle}rook`) {
 
@@ -231,8 +233,7 @@ ROOK
 
                     if ((a + i * 100) < 900 && document.getElementById(`b${a + i * 100}`).innerText == 0) {
                         document.getElementById(`b${a + i * 100}`).style.backgroundColor = 'green'
-                    }
-                    else if ((a + i * 100) < 900 && document.getElementById(`b${a + i * 100}`).innerText !== 0) {
+                    } else if ((a + i * 100) < 900 && document.getElementById(`b${a + i * 100}`).innerText !== 0) {
                         document.getElementById(`b${a + i * 100}`).style.backgroundColor = 'green'
                         break
                     }
@@ -242,8 +243,7 @@ ROOK
 
                     if ((a - i * 100) > 100 && document.getElementById(`b${a - i * 100}`).innerText == 0) {
                         document.getElementById(`b${a - i * 100}`).style.backgroundColor = 'green'
-                    }
-                    else if ((a - i * 100) > 100 && document.getElementById(`b${a - i * 100}`).innerText !== 0) {
+                    } else if ((a - i * 100) > 100 && document.getElementById(`b${a - i * 100}`).innerText !== 0) {
                         document.getElementById(`b${a - i * 100}`).style.backgroundColor = 'green'
                         break
                     }
@@ -253,8 +253,7 @@ ROOK
 
                     if ((a + i) < (aup + 9) && document.getElementById(`b${a + i}`).innerText == 0) {
                         document.getElementById(`b${a + i}`).style.backgroundColor = 'green'
-                    }
-                    else if ((a + i) < (aup + 9) && document.getElementById(`b${a + i}`).innerText !== 0) {
+                    } else if ((a + i) < (aup + 9) && document.getElementById(`b${a + i}`).innerText !== 0) {
                         document.getElementById(`b${a + i}`).style.backgroundColor = 'green'
                         break
                     }
@@ -264,8 +263,7 @@ ROOK
 
                     if ((a - i) > (aup) && document.getElementById(`b${a - i}`).innerText == 0) {
                         document.getElementById(`b${a - i}`).style.backgroundColor = 'green'
-                    }
-                    else if ((a - i) > (aup) && document.getElementById(`b${a - i}`).innerText !== 0) {
+                    } else if ((a - i) > (aup) && document.getElementById(`b${a - i}`).innerText !== 0) {
                         document.getElementById(`b${a - i}`).style.backgroundColor = 'green'
                         break
                     }
@@ -273,6 +271,7 @@ ROOK
 
                 item.style.backgroundColor = 'pink'
             }
+
 
 
             // BISHOP
@@ -283,8 +282,7 @@ ROOK
                 for (let i = 1; i < 9; i++) {
                     if (i < (900 - aup) / 100 && i < 9 - aside && document.getElementById(`b${a + i * 100 + i}`).innerText.length == 0) {
                         document.getElementById(`b${a + i * 100 + i}`).style.backgroundColor = 'green'
-                    }
-                    else if (i < (900 - aup) / 100 && i < 9 - aside && document.getElementById(`b${a + i * 100 + i}`).innerText.length !== 0) {
+                    } else if (i < (900 - aup) / 100 && i < 9 - aside && document.getElementById(`b${a + i * 100 + i}`).innerText.length !== 0) {
                         document.getElementById(`b${a + i * 100 + i}`).style.backgroundColor = 'green'
                         break
                     }
@@ -294,8 +292,7 @@ ROOK
                 for (let i = 1; i < 9; i++) {
                     if (i < aup / 100 && i < 9 - aside && document.getElementById(`b${a - i * 100 + i}`).innerText.length == 0) {
                         document.getElementById(`b${a - i * 100 + i}`).style.backgroundColor = 'green'
-                    }
-                    else if (i < aup / 100 && i < 9 - aside && document.getElementById(`b${a - i * 100 + i}`).innerText.length !== 0) {
+                    } else if (i < aup / 100 && i < 9 - aside && document.getElementById(`b${a - i * 100 + i}`).innerText.length !== 0) {
                         document.getElementById(`b${a - i * 100 + i}`).style.backgroundColor = 'green'
                         break
                     }
@@ -305,8 +302,7 @@ ROOK
                 for (let i = 1; i < 9; i++) {
                     if (i < (900 - aup) / 100 && i < aside && document.getElementById(`b${a + i * 100 - i}`).innerText.length == 0) {
                         document.getElementById(`b${a + i * 100 - i}`).style.backgroundColor = 'green'
-                    }
-                    else if (i < (900 - aup) / 100 && i < aside && document.getElementById(`b${a + i * 100 - i}`).innerText.length !== 0) {
+                    } else if (i < (900 - aup) / 100 && i < aside && document.getElementById(`b${a + i * 100 - i}`).innerText.length !== 0) {
                         document.getElementById(`b${a + i * 100 - i}`).style.backgroundColor = 'green'
                         break
                     }
@@ -317,8 +313,7 @@ ROOK
                 for (let i = 1; i < 9; i++) {
                     if (i < aup / 100 && i < aside && document.getElementById(`b${a - i * 100 - i}`).innerText.length == 0) {
                         document.getElementById(`b${a - i * 100 - i}`).style.backgroundColor = 'green'
-                    }
-                    else if (i < aup / 100 && i < aside && document.getElementById(`b${a - i * 100 - i}`).innerText.length !== 0) {
+                    } else if (i < aup / 100 && i < aside && document.getElementById(`b${a - i * 100 - i}`).innerText.length !== 0) {
                         document.getElementById(`b${a - i * 100 - i}`).style.backgroundColor = 'green'
                         break
                     }
@@ -330,17 +325,18 @@ ROOK
 
             }
 
-             // QUEEN
 
-             if (item.innerText == `${toggle}queen`) {
+
+            // QUEEN
+
+            if (item.innerText == `${toggle}queen`) {
 
 
                 for (let i = 1; i < 9; i++) {
 
                     if ((a + i * 100) < 900 && document.getElementById(`b${a + i * 100}`).innerText == 0) {
                         document.getElementById(`b${a + i * 100}`).style.backgroundColor = 'green'
-                    }
-                    else if ((a + i * 100) < 900 && document.getElementById(`b${a + i * 100}`).innerText !== 0) {
+                    } else if ((a + i * 100) < 900 && document.getElementById(`b${a + i * 100}`).innerText !== 0) {
                         document.getElementById(`b${a + i * 100}`).style.backgroundColor = 'green'
                         break
                     }
@@ -350,8 +346,7 @@ ROOK
 
                     if ((a - i * 100) > 100 && document.getElementById(`b${a - i * 100}`).innerText == 0) {
                         document.getElementById(`b${a - i * 100}`).style.backgroundColor = 'green'
-                    }
-                    else if ((a - i * 100) > 100 && document.getElementById(`b${a - i * 100}`).innerText !== 0) {
+                    } else if ((a - i * 100) > 100 && document.getElementById(`b${a - i * 100}`).innerText !== 0) {
                         document.getElementById(`b${a - i * 100}`).style.backgroundColor = 'green'
                         break
                     }
@@ -361,8 +356,7 @@ ROOK
 
                     if ((a + i) < (aup + 9) && document.getElementById(`b${a + i}`).innerText == 0) {
                         document.getElementById(`b${a + i}`).style.backgroundColor = 'green'
-                    }
-                    else if ((a + i) < (aup + 9) && document.getElementById(`b${a + i}`).innerText !== 0) {
+                    } else if ((a + i) < (aup + 9) && document.getElementById(`b${a + i}`).innerText !== 0) {
                         document.getElementById(`b${a + i}`).style.backgroundColor = 'green'
                         break
                     }
@@ -372,8 +366,7 @@ ROOK
 
                     if ((a - i) > (aup) && document.getElementById(`b${a - i}`).innerText == 0) {
                         document.getElementById(`b${a - i}`).style.backgroundColor = 'green'
-                    }
-                    else if ((a - i) > (aup) && document.getElementById(`b${a - i}`).innerText !== 0) {
+                    } else if ((a - i) > (aup) && document.getElementById(`b${a - i}`).innerText !== 0) {
                         document.getElementById(`b${a - i}`).style.backgroundColor = 'green'
                         break
                     }
@@ -384,8 +377,7 @@ ROOK
                 for (let i = 1; i < 9; i++) {
                     if (i < (900 - aup) / 100 && i < 9 - aside && document.getElementById(`b${a + i * 100 + i}`).innerText.length == 0) {
                         document.getElementById(`b${a + i * 100 + i}`).style.backgroundColor = 'green'
-                    }
-                    else if (i < (900 - aup) / 100 && i < 9 - aside && document.getElementById(`b${a + i * 100 + i}`).innerText.length !== 0) {
+                    } else if (i < (900 - aup) / 100 && i < 9 - aside && document.getElementById(`b${a + i * 100 + i}`).innerText.length !== 0) {
                         document.getElementById(`b${a + i * 100 + i}`).style.backgroundColor = 'green'
                         break
                     }
@@ -395,8 +387,7 @@ ROOK
                 for (let i = 1; i < 9; i++) {
                     if (i < aup / 100 && i < 9 - aside && document.getElementById(`b${a - i * 100 + i}`).innerText.length == 0) {
                         document.getElementById(`b${a - i * 100 + i}`).style.backgroundColor = 'green'
-                    }
-                    else if (i < aup / 100 && i < 9 - aside && document.getElementById(`b${a - i * 100 + i}`).innerText.length !== 0) {
+                    } else if (i < aup / 100 && i < 9 - aside && document.getElementById(`b${a - i * 100 + i}`).innerText.length !== 0) {
                         document.getElementById(`b${a - i * 100 + i}`).style.backgroundColor = 'green'
                         break
                     }
@@ -406,8 +397,7 @@ ROOK
                 for (let i = 1; i < 9; i++) {
                     if (i < (900 - aup) / 100 && i < aside && document.getElementById(`b${a + i * 100 - i}`).innerText.length == 0) {
                         document.getElementById(`b${a + i * 100 - i}`).style.backgroundColor = 'green'
-                    }
-                    else if (i < (900 - aup) / 100 && i < aside && document.getElementById(`b${a + i * 100 - i}`).innerText.length !== 0) {
+                    } else if (i < (900 - aup) / 100 && i < aside && document.getElementById(`b${a + i * 100 - i}`).innerText.length !== 0) {
                         document.getElementById(`b${a + i * 100 - i}`).style.backgroundColor = 'green'
                         break
                     }
@@ -418,8 +408,7 @@ ROOK
                 for (let i = 1; i < 9; i++) {
                     if (i < aup / 100 && i < aside && document.getElementById(`b${a - i * 100 - i}`).innerText.length == 0) {
                         document.getElementById(`b${a - i * 100 - i}`).style.backgroundColor = 'green'
-                    }
-                    else if (i < aup / 100 && i < aside && document.getElementById(`b${a - i * 100 - i}`).innerText.length !== 0) {
+                    } else if (i < aup / 100 && i < aside && document.getElementById(`b${a - i * 100 - i}`).innerText.length !== 0) {
                         document.getElementById(`b${a - i * 100 - i}`).style.backgroundColor = 'green'
                         break
                     }
@@ -431,88 +420,91 @@ ROOK
 
             }
 
-         // KNIGHT
+            // KNIGHT
 
-         if (item.innerText == `${toggle}knight`) {
+            if (item.innerText == `${toggle}knight`) {
 
 
-            if (aside < 7 && aup < 800) {
-                document.getElementById(`b${a + 100 + 2}`).style.backgroundColor = 'green'
-            }
-            if (aside < 7 && aup > 200) {
-                document.getElementById(`b${a - 100 + 2}`).style.backgroundColor = 'green'
-            }
-            if (aside < 8 && aup < 700) {
-                document.getElementById(`b${a + 200 + 1}`).style.backgroundColor = 'green'
-            }
-            if (aside > 1 && aup < 700) {
-                document.getElementById(`b${a + 200 - 1}`).style.backgroundColor = 'green'
-            }
-            if (aside > 2 && aup < 800) {
-                document.getElementById(`b${a - 2 + 100}`).style.backgroundColor = 'green'
-            }
-            if (aside > 2 && aup > 100) {
-                document.getElementById(`b${a - 2 - 100}`).style.backgroundColor = 'green'
-            }
-            if (aside < 8 && aup > 200) {
-                document.getElementById(`b${a - 200 + 1}`).style.backgroundColor = 'green'
-            }
-            if (aside > 1 && aup > 200) {
-                document.getElementById(`b${a - 200 - 1}`).style.backgroundColor = 'green'
-            }
+                if (aside < 7 && aup < 800) {
+                    document.getElementById(`b${a + 100 + 2}`).style.backgroundColor = 'green'
+                }
+                if (aside < 7 && aup > 200) {
+                    document.getElementById(`b${a - 100 + 2}`).style.backgroundColor = 'green'
+                }
+                if (aside < 8 && aup < 700) {
+                    document.getElementById(`b${a + 200 + 1}`).style.backgroundColor = 'green'
+                }
+                if (aside > 1 && aup < 700) {
+                    document.getElementById(`b${a + 200 - 1}`).style.backgroundColor = 'green'
+                }
+                if (aside > 2 && aup < 800) {
+                    document.getElementById(`b${a - 2 + 100}`).style.backgroundColor = 'green'
+                }
+                if (aside > 2 && aup > 100) {
+                    document.getElementById(`b${a - 2 - 100}`).style.backgroundColor = 'green'
+                }
+                if (aside < 8 && aup > 200) {
+                    document.getElementById(`b${a - 200 + 1}`).style.backgroundColor = 'green'
+                }
+                if (aside > 1 && aup > 200) {
+                    document.getElementById(`b${a - 200 - 1}`).style.backgroundColor = 'green'
+                }
 
-            item.style.backgroundColor = 'pink'
+                item.style.backgroundColor = 'pink'
 
+            }
         }
-    }
 
 
-      // Toggling the turn
+        // Toggling the turn
 
-      if (tog % 2 !== 0) {
-        document.getElementById('tog').innerText = "White's Turn"
-        whosTurn('W')
-    }
-    if (tog % 2 == 0) {
-        document.getElementById('tog').innerText = "Black's Turn"
-        whosTurn('B')
-    }
-
-    reddish()
-
-
-
-    // winning()
-
-    numOfKings = 0
-
-
-    document.querySelectorAll('.box').forEach(win => {
-        if (win.innerText == 'Wking' || win.innerText == 'Bking') {
-            numOfKings += 1
+        if (tog % 2 !== 0) {
+            document.getElementById('tog').innerText = "White's Turn"
+            whosTurn('W')
         }
+        if (tog % 2 == 0) {
+            document.getElementById('tog').innerText = "Black's Turn"
+            whosTurn('B')
+        }
+
+        reddish()
+
+
+
+        // winning()
+
+        numOfKings = 0
+
+
+        document.querySelectorAll('.box').forEach(win => {
+            if (win.innerText == 'Wking' || win.innerText == 'Bking') {
+                numOfKings += 1
+            }
+
+        })
+
+        if (numOfKings == 1) {
+            setTimeout(() => {
+                // console.log(`${toggle}`) 
+                if (tog % 2 == 0) {
+                    alert('White Wins !!')
+                    location.reload()
+                } else if (tog % 2 !== 0) {
+                    alert('Black Wins !!')
+                    location.reload()
+                }
+            }, 100)
+        }
+
+
 
     })
 
-    if (numOfKings == 1) {
-        setTimeout(() => {
-            // console.log(`${toggle}`) 
-            if (tog % 2 == 0) {
-                alert('White Wins !!')
-                location.reload()
-            }
-            else if (tog % 2 !== 0) {
-                alert('Black Wins !!')
-                location.reload()
-            }
-        }, 100)
-    }
-
-
-
 })
 
-})
+
+
+
 
 // Moving the element
 document.querySelectorAll('.box').forEach(hathiTest => {
@@ -543,6 +535,11 @@ document.querySelectorAll('.box').forEach(hathiTest => {
     })
 
 })
+
+
+
+
+
 
 // Prvents from selecting multiple elements
 z = 0
