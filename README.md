@@ -4,9 +4,9 @@ This is a Chess game project, a game that an be played by everyone.
 
 This is a project created by using javascript tools, html, css.
 
-![screenshot](.image/chess.png)
-![screenshot](.image/chess1.png)
-![screenshot](.image/chess2.png)
+![screenshot](image/chess.png)
+![screenshot](image/chess1.png)
+![screenshot](image/chess2.png)
 
 ## Built With
 
