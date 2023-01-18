@@ -59,12 +59,10 @@ li {
 
 }
 
-
-@media (max-width:650px){
- 
+@media (max-width: 650px) {
   #tog {
     margin-bottom: 70px;
- }
+  }
 
   .box {
     width: 11vw;
