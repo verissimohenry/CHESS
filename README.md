@@ -4,10 +4,9 @@ This is a Chess game project, a game that an be played by everyone.
 
 This is a project created by using javascript tools, html, css.
 
-![screenshot](.png)
-![screenshot](.png)
-![screenshot](.png)
-![screenshot](.png)
+![screenshot](.image/chess.png)
+![screenshot](.image/chess1.png)
+![screenshot](.image/chess2.png)
 
 ## Built With
 
@@ -17,7 +16,7 @@ This is a project created by using javascript tools, html, css.
 
 ## Live Demo
 
-[Live Demo Link](https://verissimohenry.github.io/capstone-project/)
+[Live Demo Link](https://splendorous-seahorse-1bc649.netlify.app/)
 
 ## Getting started
 
