@@ -39,12 +39,13 @@ li {
     margin: 10px 0px;
 }
 
+
+
 .allimg {
     width: 45px;
     position: relative;
     bottom: 5px;
 }
-
 
 .allpawn {
     transform: scale(.7);
@@ -59,6 +60,7 @@ li {
     margin-right: 50px;
 
 }
+
 
 @media (max-width:650px){
 
