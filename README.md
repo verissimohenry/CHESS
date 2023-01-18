@@ -7,6 +7,8 @@ This is a project created by using javascript tools, html, css.
 ![screenshot](image/chess.png)
 ![screenshot](image/chess1.png)
 ![screenshot](image/chess2.png)
+![screenshot](image/chess3.png)
+![screenshot](image/chess4.png)
 
 ## Built With
 
