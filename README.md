@@ -1,8 +1,8 @@
 # CHESS
 
-This is a Chess game project, a game that an be played by everyone.
+This is a Chess game project, a game that can be played by everyone.
 
-This is a project created by using javascript tools, html, css.
+This is a project created by using html, css and javascript tools.
 
 ![screenshot](image/chess.png)
 ![screenshot](image/chess1.png)
